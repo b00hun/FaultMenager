@@ -22,7 +22,10 @@ namespace FaultMenagerBLL.Database
         public DbSet<Menager> Menagers { get; set; }
 
         public DbSet<ProjectMenager> ProjectMenagers { get; set; }
+
         public DbSet<Fault> Faults { get; set; }
+
+        public DbSet<SubcontractorFirm> SubcontractorFirms { get; set; }
 
 
 
@@ -113,6 +116,21 @@ namespace FaultMenagerBLL.Database
 
             modelBuilder.Entity<Fault>()
                 .HasOne(f => f.Project).WithMany(f => f.Faults).HasForeignKey(f => f.ProjectId);
+
+            modelBuilder.Entity<Fault>()
+                .HasOne(f => f.SubcontractorFirm).WithMany(f => f.Faults).HasForeignKey(f => f.SubcontractorId);
+
+            //Subcontractor
+
+            modelBuilder.Entity<SubcontractorFirm>()
+                .HasKey(s=>s.SubcontractorFirmId);
+
+            modelBuilder.Entity<SubcontractorFirm>()
+                .Property(s => s.SubcontractorName)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            
 
         }
 

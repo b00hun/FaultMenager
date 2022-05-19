@@ -26,7 +26,9 @@ namespace FaultMenager_Models.Models
 
         public Project Project { get; set; }
 
-        //List of Firms in charge
+        public int SubcontractorId { get; set; }
+
+        public SubcontractorFirm SubcontractorFirm { get; set; }
 
         // List of comments
 

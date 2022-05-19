@@ -10,8 +10,11 @@ namespace FaultMenager_Models.Models
     {
         //SubcontractorMenager
         public int SubcontractorId { get; set; }
+
         public string Name { get; set; }
 
         public int WorkerPhone { get; set; }
+
+        
     }
 }

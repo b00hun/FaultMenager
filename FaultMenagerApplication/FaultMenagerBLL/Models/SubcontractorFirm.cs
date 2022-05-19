@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace FaultMenager_Models.Models
 {
-    public class Subcontractor
+    public class SubcontractorFirm
     {
-        public int CubcontractorId { get; set; }
+        public int SubcontractorFirmId { get; set; }
 
-        public string CubcontractorName { get; set; }
+        public string SubcontractorName { get; set; }
+
+        public List<Fault> Faults { get; set; }
 
         //list of workes
 
