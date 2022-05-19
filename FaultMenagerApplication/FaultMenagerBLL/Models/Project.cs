@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FaultMenager_Models.Models.RelationTables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace FaultMenager_Models.Models
 
         public string ProjectAdress { get; set; }
 
-        //List of Menagers in charge
+        public virtual ICollection<ProjectMenager> ProjectMenagers { get; set; }
     }
 }

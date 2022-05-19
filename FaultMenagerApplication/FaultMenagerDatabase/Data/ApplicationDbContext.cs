@@ -1,4 +1,5 @@
 ﻿using FaultMenager_Models.Models;
+using FaultMenager_Models.Models.RelationTables;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace FaultMenagerBLL.Database
         public DbSet<Project> Projects { get; set; }
 
         public DbSet<Menager> Menagers { get; set; }
+
+        public DbSet<ProjectMenager> ProjectMenagers { get; set; }
 
 
 
@@ -67,7 +70,14 @@ namespace FaultMenagerBLL.Database
                 .IsRequired()
                 .HasMaxLength(9);
 
-            
+            //Project-Menager - many to many relation
+
+            modelBuilder.Entity<ProjectMenager>()
+                .HasKey(pm=> new {pm.MenagerId,pm.ProjectId});
+            modelBuilder.Entity<ProjectMenager>()
+                .HasOne(p => p.Menager).WithMany(p => p.ProjectMenagers).HasForeignKey(p => p.MenagerId);
+            modelBuilder.Entity<ProjectMenager>()
+                .HasOne(p => p.Project).WithMany(p => p.ProjectMenagers).HasForeignKey(p => p.ProjectId);
            
         }
 

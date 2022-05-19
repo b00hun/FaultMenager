@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FaultMenager_Models.Models.RelationTables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,6 @@ namespace FaultMenager_Models.Models
 
         public string MenagerMail { get; set; }
 
-        //Projects in charge
+        public virtual ICollection<ProjectMenager> ProjectMenagers { get; set; }
     }
 }
