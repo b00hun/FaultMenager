@@ -19,6 +19,8 @@ namespace FaultMenager_Models.Models
 
         public Status Status { get; set; } 
 
+        public Category Category { get; set; }
+
         // list Category
 
         //List of Firms in charge
