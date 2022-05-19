@@ -17,6 +17,8 @@ namespace FaultMenagerBLL.Database
 
         public DbSet<Project> Projects { get; set; }
 
+        public DbSet<Menager> Menagers { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,6 +41,33 @@ namespace FaultMenagerBLL.Database
                 .IsRequired()
                 .HasMaxLength(50);
 
+
+            //Menager configuration
+
+            modelBuilder.Entity<Menager>()
+                .HasKey(m=>m.MenagerId);
+
+            modelBuilder.Entity<Menager>()
+                .Property(m => m.MenagerName)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            modelBuilder.Entity<Menager>()
+                .Property(m => m.MenagerSurname)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            modelBuilder.Entity<Menager>()
+                .Property(m => m.MenagerMail)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Menager>()
+                .Property(m => m.MenagerPhoneNumber)
+                .IsRequired()
+                .HasMaxLength(9);
+
+            
            
         }
 
