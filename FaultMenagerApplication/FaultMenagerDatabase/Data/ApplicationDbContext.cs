@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FaultMenagerBLL.Database
 {
-    internal class DbContext
+    public class ApplicationDbContext 
     {
     }
 }
