@@ -16,5 +16,7 @@ namespace FaultMenager_Models.Models
         public string ProjectAdress { get; set; }
 
         public virtual ICollection<ProjectMenager> ProjectMenagers { get; set; }
+
+        public List<Fault> Faults { get; set; }
     }
 }

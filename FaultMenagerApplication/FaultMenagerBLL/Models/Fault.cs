@@ -15,13 +15,16 @@ namespace FaultMenager_Models.Models
 
         public string Location { get; set; }
 
+
         public string Desription { get; set; }
 
         public Status Status { get; set; } 
 
         public Category Category { get; set; }
 
-        // list Category
+        public int ProjectId { get; set; }
+
+        public Project Project { get; set; }
 
         //List of Firms in charge
 

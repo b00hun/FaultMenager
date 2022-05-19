@@ -1,4 +1,5 @@
 ﻿using FaultMenager_Models.Models;
+using FaultMenager_Models.Models.Enums;
 using FaultMenager_Models.Models.RelationTables;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +22,8 @@ namespace FaultMenagerBLL.Database
         public DbSet<Menager> Menagers { get; set; }
 
         public DbSet<ProjectMenager> ProjectMenagers { get; set; }
+        public DbSet<Fault> Faults { get; set; }
+
 
 
 
@@ -79,6 +82,38 @@ namespace FaultMenagerBLL.Database
             modelBuilder.Entity<ProjectMenager>()
                 .HasOne(p => p.Project).WithMany(p => p.ProjectMenagers).HasForeignKey(p => p.ProjectId);
            
+
+
+            //Fault configuration
+            modelBuilder.Entity<Fault>()
+                .HasKey(f=>f.FaultId);
+
+            modelBuilder.Entity<Fault>()
+                .Property(f=>f.Title)
+                .HasMaxLength(40)
+                .IsRequired();
+
+            modelBuilder.Entity<Fault>()
+                .Property(f => f.Location)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            modelBuilder.Entity<Fault>()
+                .Property(f => f.Desription)
+                .HasMaxLength(500)
+                .IsRequired(false);
+
+            modelBuilder.Entity<Fault>()
+                .Property(f => f.Status)
+                .HasDefaultValue(Status.Trwa);
+
+            modelBuilder.Entity<Fault>()
+                .Property(f => f.Category)
+                .HasDefaultValue(Category.Wykonczenie);
+
+            modelBuilder.Entity<Fault>()
+                .HasOne(f => f.Project).WithMany(f => f.Faults).HasForeignKey(f => f.ProjectId);
+
         }
 
     }

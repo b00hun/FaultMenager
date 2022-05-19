@@ -8,7 +8,7 @@ namespace FaultMenager_Models.Models.Enums
 {
     public enum Category
     {
-        Malowanie,
+        Wykonczenie,
         Budowlanka,
         Płytki,
         Hydraulika,
