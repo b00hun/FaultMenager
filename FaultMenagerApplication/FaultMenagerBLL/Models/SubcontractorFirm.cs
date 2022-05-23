@@ -14,7 +14,7 @@ namespace FaultMenager_Models.Models
 
         public List<Fault> Faults { get; set; }
 
-        //list of workes
+        public List<SubcontractorWorker> Workers { get; set; }
 
     }
 }

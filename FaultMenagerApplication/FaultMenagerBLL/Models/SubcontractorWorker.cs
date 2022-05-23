@@ -14,7 +14,11 @@ namespace FaultMenager_Models.Models
         public string Name { get; set; }
 
         public int WorkerPhone { get; set; }
+        public string Email { get; set; }
 
-        
+        public int SubcotractorFirmId { get; set; }
+       
+        public SubcontractorFirm SubcontractorFirm { get; set; } 
+
     }
 }

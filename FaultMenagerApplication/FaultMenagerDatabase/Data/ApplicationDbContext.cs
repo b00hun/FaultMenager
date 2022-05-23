@@ -28,6 +28,8 @@ namespace FaultMenagerBLL.Database
         public DbSet<SubcontractorFirm> SubcontractorFirms { get; set; }
 
 
+        public DbSet<SubcontractorWorker> SubcontractorWorker { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -131,6 +133,33 @@ namespace FaultMenagerBLL.Database
                 .IsRequired();
 
             
+
+            //SubcontractorWorkers
+
+            modelBuilder.Entity<SubcontractorWorker>()
+                .HasKey(s=>s.SubcontractorId);
+
+            modelBuilder.Entity<SubcontractorWorker>()
+                .Property(s => s.Name)
+                .HasMaxLength(25)
+                .IsRequired();
+
+            modelBuilder.Entity<SubcontractorWorker>()
+                .Property(s => s.WorkerPhone)
+                .HasMaxLength(9)
+                .IsRequired();
+
+            modelBuilder.Entity<SubcontractorWorker>()
+                .Property(s => s.Email)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            modelBuilder.Entity<SubcontractorWorker>()
+                .HasOne(s => s.SubcontractorFirm).WithMany(s => s.Workers).HasForeignKey(s => s.SubcotractorFirmId);
+
+
+
+
 
         }
 
